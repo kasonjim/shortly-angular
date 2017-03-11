@@ -1,3 +1,25 @@
 <div id='container'>
-  <!-- Your html here -->
+  <nav class="navigation">
+    <ul>
+      <li><a class="selected">Links</a></li>
+      <li><a href="/#/shorten">Shorten</a></li>
+    </ul>
+  </nav>
+
+  <form>
+    <input ng-model="inputBoxValue" />
+  </form>
+
+  <div class="link" ng-repeat="link in data.links" ng-show="link.url.indexOf(inputBoxValue) !== -1 || !inputBoxValue">
+    <img src="/assets/redirect_icon.png"/>
+    <div class="info">
+      <span class="visits">Visits: <span class="count">{{link.visits}}</span></span>
+      <div class="title">{{link.title}}</div>
+      <a href="{{link.baseUrl}}/{{link.code}}">{{link.baseUrl + '/' + link.code}}</a>
+      <!-- <a href="{{link.url}}">{{link.baseUrl + '/' + link.code}}</a> -->
+      </br>
+      <span class="original">{{link.url}}</span>
+    </div>
+  </div>
+
 </div>

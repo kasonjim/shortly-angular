@@ -53,7 +53,7 @@ describe('Services', function () {
         .expect('POST', '/api/links', JSON.stringify(github))
         .respond(201, {
           url: 'https://github.com/reactorcore',
-          title: 'reactorcore'
+          title: 'Hack Reactor Labs'
         });
 
       Links.addOne(github).then(function (resp) {

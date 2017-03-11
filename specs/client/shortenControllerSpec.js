@@ -1,7 +1,12 @@
 'use strict';
 
 describe('ShortenController', function () {
-  var $scope, $rootScope, $location, createController, $httpBackend, Links;
+  var $scope;
+  var $rootScope;
+  var $location;
+  var createController;
+  var $httpBackend;
+  var Links;
 
   // using angular mocks, we can inject the injector
   // to retrieve our dependencies
@@ -46,5 +51,22 @@ describe('ShortenController', function () {
     $httpBackend.expectPOST('/api/links').respond(201, '');
     $scope.addLink();
     $httpBackend.flush();
+  });
+  it('should not allow shortening of invalid links before sending to server', function () {
+    expect($scope.isValid).to.be.a('function');
+
+    $scope.link.url = '';
+    $scope.isValid();
+    expect($scope.showError).to.equal(true);
+    expect($scope.inputError).to.equal('URL cannot be empty');
+
+    $scope.link.url = 'asdfasdf';
+    $scope.isValid();
+    expect($scope.showError).to.equal(true);
+    expect($scope.inputError).to.equal('Please enter a valid URL');
+
+    $scope.link.url = 'http://www.google.com';
+    $scope.isValid();
+    expect($scope.showError).to.equal(false);
   });
 });

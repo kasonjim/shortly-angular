@@ -49,7 +49,7 @@ gulp.task('start', ['serve'], function () {
 gulp.task('karma', function (done) {
   new KarmaServer({
     configFile: __dirname + '/karma.conf.js'
-  }, done).start();
+  }, done()).start();
 });
 
 // Use ES5 by default

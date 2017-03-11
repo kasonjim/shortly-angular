@@ -15,6 +15,10 @@ h1 {
   margin-bottom: 10px;
 }
 
+#signup, #signin {
+  background-color: rgba(0,0,200,0.05);
+}
+
 .navigation {
   width: 100%;
   height: 40px;
@@ -115,9 +119,12 @@ input[type=url]:focus {
 
 
 .error {
-  border: red solid 4px;
-  padding: 10px;
-  margin: 0 10px;
+  border: red solid 1px;
+  background-color: rgba(255,0,0, 0.05);
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px;
+  width: 362px;
 }
 
 .clean {

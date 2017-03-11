@@ -1,5 +1,24 @@
 <div id='container'>
-<!-- Your code here -->
+<!-- Your code here
+  .error
+  .clean
+  .creator
+  .creator form
+  .creater img.spinner
+  .creator .message
+
+ -->
+  <nav class="navigation">
+    <ul>
+      <li><a href="/#/links">Links</a></li>
+      <li><a class="selected">Shorten</a></li>
+    </ul>
+  </nav>
+
+  <form ng-submit="!showError && addLink()">
+    <input type="text" ng-change="isValid()" ng-model="link.url" />
+  </form>
+  <div class="error" ng-show="showError">{{inputError}}</div>
 
 </div>
 

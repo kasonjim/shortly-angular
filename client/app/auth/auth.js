@@ -5,7 +5,7 @@ angular.module('shortly.auth', [])
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
   $scope.user = {};
-  $scope.showError = true;
+  $scope.showError = false;
   $scope.inputError = 'Fields cannot be empty';
 
   $scope.signin = function () {

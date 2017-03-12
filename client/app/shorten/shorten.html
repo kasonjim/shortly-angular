@@ -1,18 +1,11 @@
 <div id='container'>
-<!-- Your code here
-  .error
-  .clean
-  .creator
-  .creator form
-  .creater img.spinner
-  .creator .message
 
- -->
   <nav class="navigation">
     <ul>
       <li><a href="/#/links">Links</a></li>
       <li><a class="selected">Shorten</a></li>
     </ul>
+    <div class="signout" ng-click="logout()">Log Out</div>
   </nav>
 
   <form ng-submit="!showError && addLink()">

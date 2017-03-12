@@ -1,14 +1,15 @@
 angular.module('shortly.shorten', [])
 
-.controller('ShortenController', function ($scope, $location, Links) {
+.controller('ShortenController', function ($scope, $location, Links, Auth) {
   $scope.link = {url: ''};
   $scope.inputError = 'URL cannot be empty';
-  $scope.showError = true;
+  $scope.showError = false;
 
   $scope.addLink = function() {
     Links.addOne($scope.link).
       then(function() {
         $scope.link.url = '';
+        $location.path('/');
       });
   };
 
@@ -25,5 +26,10 @@ angular.module('shortly.shorten', [])
     } else {
       $scope.showError = false;
     }
+  };
+
+  $scope.logout = function() {
+    console.log('click logout');
+    Auth.signout();
   };
 });
